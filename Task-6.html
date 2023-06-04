@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sort Letters</title>
+</head>
+<body>
+  <h1>Sort Letters</h1>
+
+  <form id="sortForm">
+    <label for="stringInput">Enter a string:</label>
+    <input type="text" id="stringInput" required>
+    <button type="submit">Sort</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("sortForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+    
+      const string = document.getElementById("stringInput").value;
+
+ 
+      const sortedString = sortLetters(string);
+
+
+      document.getElementById("result").textContent = `Sorted string: ${sortedString}`;
+    });
+
+    function sortLetters(string) {
+ 
+      const characters = string.split('');
+
+
+      const sortedCharacters = characters.sort();
+
+   
+      const sortedString = sortedCharacters.join('');
+
+      return sortedString;
+    }
+  </script>
+</body>
+</html>

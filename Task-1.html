@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time Example</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time Example</title>
+</head>
+<body>
+  <h1 id="date"></h1>
+  <h1 id="time"></h1>
+  <button onclick="showDate()">Show Date</button>
+  <button onclick="showTime()">Show Time</button>
+
+  <script>
+    function showDate() {
+      var dateElement = document.getElementById("date");
+      var currentDate = new Date();
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      var formattedDate = currentDate.toLocaleDateString(undefined, options);
+      dateElement.textContent = "Date: " + formattedDate;
+    }
+
+    function showTime() {
+      var timeElement = document.getElementById("time");
+      var currentDate = new Date();
+      var hours = currentDate.getHours();
+      var minutes = currentDate.getMinutes();
+      var seconds = currentDate.getSeconds();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      var formattedTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+      timeElement.textContent = "Time: " + formattedTime;
+    }
+  </script>
+</body>
+</html>
+
